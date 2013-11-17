@@ -1049,7 +1049,7 @@ function node_export_file_field_export(&$node, $original_node) {
               }
               // Remote export mode
               elseif ($export_mode == 'remote') {
-                $export_data = url($file->uri, array('absolute' => TRUE));
+                $export_data = file_create_url($file->uri);
               }
               // Default is 'inline' export mode
               else {
