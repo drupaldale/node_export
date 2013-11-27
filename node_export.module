@@ -579,7 +579,8 @@ function node_export_import($code_string, $msg_t = 't', $save = TRUE) {
       switch ($existing) {
         case 'new':
           $node->is_new = TRUE;
-          unset($node->uuid);
+          $node->original_uuid = $node->uuid;
+          $node->uuid = uuid_generate();
           break;
         case 'revision':
           $node->nid = $nids[$node->uuid];
